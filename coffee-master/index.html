@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lattiz Website</title>
-
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
@@ -43,12 +47,11 @@
             <a class="nav-link" href="#sustainability">Sustainability</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#support">Support</a>
+            <a class="nav-link" href="#contact">Contact Us</a>
           </li>
         </ul>
       </div>
     </nav>
-    <!-- Content goes here -->
 
     <div class="background-section">
       <div class="content">
@@ -61,7 +64,9 @@
     </div>
 
     <div class="services-section">
-      <h2 class="section-title">Whom we serve<span class="dot">.</span></h2>
+      <h2 id="whomweserve" class="section-title">
+        Whom we serve<span class="dot">.</span>
+      </h2>
 
       <div class="service-card">
         <div class="service-image-container">
@@ -128,7 +133,7 @@
       </div>
     </div>
 
-    <div class="products-section">
+    <div id="products" class="products-section">
       <div class="products-text">
         <h2 class="products-title">Our products<span class="dot">.</span></h2>
         <p class="products-description">
@@ -145,6 +150,7 @@
         data-title="Lattiz® Advance"
         data-description="Suitable for high capacity. Speed of 6 cappuccinos per minute."
         data-image="../coffee-master/img/machine.png"
+        data-modal-image="../coffee-master/img/machineforward.png"
         data-features='["14+ cappuccinos per day", "Recipe personalization", "Touchscreen display"]'
       >
         <div class="product-image-container">
@@ -166,6 +172,7 @@
         data-title="Lattiz® Inside"
         data-description="Integrated milk foam solution, no cleaning required."
         data-image="../coffee-master/img/machine2.png"
+        data-modal-image="../coffee-master/img/machine2.png"
         data-features='["No cleaning required", "Integrated solution", "Compact design"]'
       >
         <div class="product-image-container">
@@ -187,6 +194,7 @@
         data-title="Lattiz® Milk"
         data-description="High-quality milk formula, no cooling required."
         data-image="../coffee-master/img/milk.png"
+        data-modal-image="../coffee-master/img/milk.png"
         data-features='["High-quality milk formula", "No cooling required"]'
       >
         <div class="product-image-container">
@@ -207,19 +215,525 @@
     <!-- Modal Structure -->
     <div id="productModal" class="modal" style="display: none">
       <div class="modal-content">
-        <span class="close-button">&times;</span>
+        <span class="close-button" onclick="closeModal()">×</span>
         <h2 id="modalTitle">Product Title</h2>
         <img id="modalImage" src="" alt="Product Image" class="modal-image" />
-        <p id="modalDescription">Product description goes here.</p>
-        <ul id="modalFeatures" class="modal-features">
-          <!-- Features will be populated here -->
-        </ul>
+        <p id="modalDescription">
+          The smart milk solution that makes it easy to sell more coffee.
+        </p>
+        <!-- Features Section -->
+        <div class="modal-features">
+          <div class="feature">
+            <h3>Suitable for high capacity</h3>
+            <ul>
+              <li>Speed of 6 cappuccinos per minute</li>
+              <li>70% less breakdowns than fully automated machines</li>
+            </ul>
+          </div>
+          <div class="feature">
+            <h3>Can be used by anyone</h3>
+            <ul>
+              <li>Fully automatic cleaning</li>
+              <li>Easy and clear touchscreen</li>
+            </ul>
+          </div>
+          <div class="feature">
+            <h3>Personalization</h3>
+            <ul>
+              <li>Adjust amount of milk and foam per cup</li>
+              <li>Prepare various textures</li>
+            </ul>
+          </div>
+          <div class="feature">
+            <h3>Cost-effective solution</h3>
+            <ul>
+              <li>A++ energy label</li>
+              <li>No milk wastage</li>
+              <li>No cooling needed</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- How it Works Section -->
+        <h3>How it works</h3>
+        <div class="how-it-works">
+          <div class="step">
+            <div class="image-circle">
+              <img src="../coffee-master/img/milk.png" alt="Milk Pack Image" />
+            </div>
+            <h4>Get a milk pack</h4>
+            <ul>
+              <li>Up to 140 cappuccinos per pack</li>
+              <li>No cooling needed</li>
+              <li>Less handling and waste</li>
+            </ul>
+          </div>
+
+          <div class="step">
+            <div class="image-circle">
+              <img src="../coffee-master/img/machine.png" alt="Machine Image" />
+            </div>
+            <h4>Fill the machine</h4>
+            <ul>
+              <li>Insert the milk package in your machine</li>
+              <li>Use it for up to 10 days without cooling</li>
+            </ul>
+          </div>
+
+          <div class="step">
+            <div class="image-circle">
+              <img src="../coffee-master/img/cup.png" alt="Button Image" />
+            </div>
+            <h4>Push 1 button</h4>
+            <ul>
+              <li>Push 1 button</li>
+              <li>Maintain easily</li>
+            </ul>
+          </div>
+
+          <div class="step">
+            <div class="image-circle">
+              <img
+                src="../coffee-master/img/machine2.png"
+                alt="Support Image"
+              />
+            </div>
+            <h4>Maintain easily</h4>
+            <ul>
+              <li>No cleaning needed</li>
+              <li>100% hygienic</li>
+              <li>Support is easy to reach and ready to help</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
 
+    <!-- Modal Structure for Lattiz Inside -->
+    <div id="lattizInsideModal" class="modal" style="display: none">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2 id="modalTitle">
+          Lattiz® Inside: Our Integrated Milk Foam Solution
+        </h2>
+        <img
+          id="modalImage"
+          src="../coffee-master/img/lattiz-essential.png"
+          alt="Essential for Coffee Businesses"
+          class="modal-image"
+        />
+        <p id="modalDescription">
+          The smart milk foam solution that makes it easy to serve more coffee
+          with optimal hygiene. Lattiz® Inside’s smart milk foam solution is now
+          available to integrate into your coffee machine.
+        </p>
+
+        <!-- Benefits Section -->
+        <h3>Benefits of our system.</h3>
+        <div class="modal-benefits">
+          <div class="benefit">
+            <div class="image-circle">
+              <img
+                src="../coffee-master/img/lattiz-essential.png"
+                alt="Essential for Coffee Businesses"
+                class="modal-icon"
+              />
+            </div>
+            <h4>Essential for Coffee Businesses</h4>
+            <ul>
+              <li>Chains</li>
+              <li>Coffee roasters</li>
+              <li>Vending parties</li>
+              <li>Office coffee services</li>
+            </ul>
+          </div>
+          <div class="benefit">
+            <div class="image-circle">
+              <img
+                src="../coffee-master/img/lattiz-effortless.png"
+                alt="Effortless Quality Upgrade"
+                class="modal-icon"
+              />
+            </div>
+            <h4>Effortless Quality Upgrade</h4>
+            <ul>
+              <li>Perfect milk foam in record time</li>
+              <li>One bag-in-box makes up to 140 cappuccinos</li>
+              <li>Hassle-free</li>
+            </ul>
+          </div>
+          <div class="benefit">
+            <div class="image-circle">
+              <img
+                src="../coffee-master/img/hygiene.png"
+                alt="Assured Hygiene & Safety"
+                class="modal-icon"
+              />
+            </div>
+            <h4>Assured Hygiene & Safety</h4>
+            <ul>
+              <li>
+                The milk will not run through pipes or tubes inside the machine
+              </li>
+              <li>No extensive cleaning is required</li>
+            </ul>
+          </div>
+          <div class="benefit">
+            <div class="image-circle">
+              <img
+                src="../coffee-master/img/easyuse.png"
+                alt="Easy to use"
+                class="modal-icon"
+              />
+            </div>
+            <h4>Easy to use</h4>
+            <ul>
+              <li>Less handling</li>
+              <li>Less packaging waste</li>
+              <li>Reduction of milk-related machine breakdowns by up to 80%</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Technology Section -->
+        <h3>Our technology.</h3>
+        <div class="modal-technology">
+          <div class="technology-item">
+            <h4>Implementation</h4>
+            <ul>
+              <li>We offer a smart milk foam solution for easy integration</li>
+              <li>Customizable modules for your coffee machine</li>
+            </ul>
+          </div>
+          <div class="technology-item">
+            <h4>Trusted Partner</h4>
+            <ul>
+              <li>Lattiz® is a trusted brand with a proven track record</li>
+              <li>Support at every step for best operational excellence</li>
+            </ul>
+          </div>
+          <div class="technology-item">
+            <h4>Licensing</h4>
+            <ul>
+              <li>License to integrate our milk foam module</li>
+              <li>Ensures absolute hygiene and food safety</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Structure for Lattiz Milk Pack -->
+    <div id="lattizMilkModal" class="modal" style="display: none">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2 id="modalTitle">Lattiz® 4L Milk Pack</h2>
+        <img
+          id="modalImage"
+          src="../coffee-master/img/milk-pack.png"
+          alt="Lattiz 4L Milk Pack Image"
+          class="modal-image"
+        />
+        <p id="modalDescription">
+          The Lattiz® 4-Litre Milk Pack delivers consistently excellent milk
+          foam with every use, ensuring top hygiene and quality in your coffee
+          creations — now easily integrated into your coffee routine.
+        </p>
+
+        <!-- Benefits Section -->
+        <h3>Benefits of the pack.</h3>
+        <div class="modal-benefits">
+          <div class="benefit">
+            <div class="image-circle">
+              <img
+                src="../coffee-master/img/latte.png"
+                alt="Extended Freshness"
+                class="modal-icon"
+              />
+            </div>
+            <h4>Extended freshness</h4>
+            <ul>
+              <li>Longer shelf life, less restocking</li>
+              <li>Maintains milk quality over time</li>
+              <li>Reduces the risk of milk spoilage</li>
+            </ul>
+          </div>
+          <div class="benefit">
+            <div class="image-circle">
+              <img
+                src="../coffee-master/img/woman.png"
+                alt="Cost-effective Solution"
+                class="modal-icon"
+              />
+            </div>
+            <h4>Cost-effective solution</h4>
+            <ul>
+              <li>Buy in bulk, save more</li>
+              <li>Streamline supply management</li>
+            </ul>
+          </div>
+          <div class="benefit">
+            <div class="image-circle">
+              <img
+                src="../coffee-master/img/barrista.png"
+                alt="Less Milk Waste"
+                class="modal-icon"
+              />
+            </div>
+            <h4>Less milk waste</h4>
+            <ul>
+              <li>Precise portioning reduces excess</li>
+              <li>Minimizes unused milk disposal</li>
+            </ul>
+          </div>
+          <div class="benefit">
+            <div class="image-circle">
+              <img
+                src="../coffee-master/img/machine-hand.png"
+                alt="Superior Hygiene Standards"
+                class="modal-icon"
+              />
+            </div>
+            <h4>Superior hygiene standards</h4>
+            <ul>
+              <li>Sealed for peak cleanliness</li>
+              <li>Limits exposure to contaminants</li>
+              <li>Exceeds hygiene expectations in milk storage and usage</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- About Us Section -->
+    <section id="about" class="about-section">
+      <div class="about-overlay">
+        <div class="container">
+          <h2 class="about-title">About us</h2>
+          <p class="about-intro">
+            Lattiz®, developed by FrieslandCampina, provides restaurants, cafes,
+            hotels, bakeries, and offices an effortless method to produce
+            consistent, high-quality milk foam at the touch of a button.
+          </p>
+        </div>
+      </div>
+      <div class="about-content">
+        <div class="container">
+          <!-- First Section with Image on Right -->
+          <div class="about-section-content">
+            <div class="text">
+              <h3>How it started.</h3>
+              <p>
+                Launched in 2015, Lattiz® is the smart milk solution for coffee
+                professionals, developed over 7 years with baristas, hospitality
+                experts, coffee roasters, and machine manufacturers. Today,
+                thousands of baristas rely on Lattiz® to deliver the perfect
+                milk foam.
+              </p>
+            </div>
+          </div>
+
+          <!-- Second Section with Image on Left -->
+          <div class="about-section-content">
+            <div class="image image-left">
+              <img
+                src="../coffee-master/img/about-machine.png"
+                alt="Our Vision and Mission"
+              />
+            </div>
+            <div class="text">
+              <h3>Our Vision and Mission</h3>
+              <p>
+                At Lattiz®, our vision is to bring the perfect milk foam to
+                every coffee cup. We aim to make professional milk foam
+                accessible and convenient for all coffee-serving businesses,
+                regardless of their size.
+              </p>
+            </div>
+          </div>
+
+          <!-- Third Section with Image on Right -->
+          <div class="about-section-content">
+            <div class="text">
+              <h3>Why Choose Lattiz®?</h3>
+              <ul>
+                <li>
+                  Effortless milk foam production at the touch of a button.
+                </li>
+                <li>Guaranteed consistency with every use.</li>
+                <li>
+                  Trusted by professionals in thousands of cafes and
+                  restaurants.
+                </li>
+                <li>Backed by FrieslandCampina's years of dairy expertise.</li>
+              </ul>
+            </div>
+            <div class="image image-right">
+              <img
+                src="../coffee-master/img/woman2.png"
+                alt="Why Choose Lattiz"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Separator with Background Image -->
+    <div class="contact-separator">
+      <h2>Contact Us<span class="dot">.</span></h2>
+      <p>We’re here to help! Reach out for support or any questions.</p>
+    </div>
+
+    <!-- Contact Us Section -->
+    <section id="contact" class="contact-section">
+      <div class="contact-container">
+        <!-- Contact Form -->
+        <div class="contact-form">
+          <h3>Get in Touch</h3>
+          <p>
+            Please fill in your details and our team will get back to you
+            promptly.
+          </p>
+
+          <form action="#" method="post">
+            <!-- Contact Category -->
+            <div class="form-group">
+              <label for="contact-category">Contact Category*</label>
+              <select id="contact-category" name="category" required>
+                <option value="">Select a category</option>
+                <option value="general">General Inquiry</option>
+                <option value="support">Support</option>
+                <option value="sales">Sales</option>
+              </select>
+            </div>
+            <!-- First Name -->
+            <div class="form-group">
+              <label for="first-name">First Name*</label>
+              <input type="text" id="first-name" name="first-name" required />
+            </div>
+            <!-- Last Name -->
+            <div class="form-group">
+              <label for="last-name">Last Name*</label>
+              <input type="text" id="last-name" name="last-name" required />
+            </div>
+            <!-- Email Address -->
+            <div class="form-group">
+              <label for="email">Email Address*</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <!-- Phone Number -->
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" />
+            </div>
+            <!-- Company Name -->
+            <div class="form-group">
+              <label for="company-name">Company Name</label>
+              <input type="text" id="company-name" name="company-name" />
+            </div>
+            <!-- Company Address -->
+            <div class="form-group">
+              <label for="company-address">Company Address</label>
+              <input type="text" id="company-address" name="company-address" />
+            </div>
+            <!-- City -->
+            <div class="form-group">
+              <label for="city">City</label>
+              <input type="text" id="city" name="city" />
+            </div>
+            <!-- Postal Code -->
+            <div class="form-group">
+              <label for="postal-code">Postal Code</label>
+              <input type="text" id="postal-code" name="postal-code" />
+            </div>
+            <!-- Country -->
+            <div class="form-group">
+              <label for="country">Country*</label>
+              <select id="country" name="country" required>
+                <option value="">Select Country</option>
+                <!-- Add country options here -->
+              </select>
+            </div>
+            <!-- Message -->
+            <div class="form-group">
+              <label for="message">Message*</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                required
+              ></textarea>
+            </div>
+            <!-- Submit Button -->
+            <button type="submit" class="submit-button">Submit</button>
+          </form>
+        </div>
+
+        <!-- Image Section -->
+        <div class="contact-image">
+          <img src="../coffee-master/img/contact.png" alt="Contact Us Image" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+      <div class="footer-container">
+        <!-- Footer Logo with Overlay -->
+        <div class="footer-logo">
+          <div class="logo-overlay"></div>
+          <!-- Overlay for logo visibility enhancement -->
+          <img
+            src="../coffee-master/img/logo.png"
+            alt="Lattiz Logo"
+            class="footer-logo-image"
+          />
+          <p>Impossibly easy.</p>
+        </div>
+
+        <!-- Footer Links -->
+        <div class="footer-links">
+          <a href="#contact">Contact Us</a>
+          <a href="#about">About Us</a>
+          <a href="#newsletter">Newsletter</a>
+        </div>
+
+        <!-- Social Media Icons -->
+        <div class="footer-socials">
+          <a href="https://facebook.com" target="_blank" class="social-icon">
+            <i class="fab fa-facebook"></i>
+          </a>
+          <a href="https://instagram.com" target="_blank" class="social-icon">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://linkedin.com" target="_blank" class="social-icon">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://youtube.com" target="_blank" class="social-icon">
+            <i class="fab fa-youtube"></i>
+          </a>
+        </div>
+
+        <!-- Legal Links -->
+        <div class="footer-legal">
+          <a href="#disclaimer">Disclaimer</a>
+          <a href="#privacy">Privacy</a>
+          <a href="#cookie-policy">Cookie Policy</a>
+          <p>
+            Lattiz® is part of
+            <a href="https://www.frieslandcampinaprofessional.com"
+              >FrieslandCampina Professional</a
+            >
+          </p>
+        </div>
+      </div>
+    </footer>
+
     <!-- Scripts -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
     <script src="js/main.js"></script>
   </body>
 </html>

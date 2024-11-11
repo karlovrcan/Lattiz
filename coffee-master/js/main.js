@@ -1,7 +1,6 @@
 $(document).ready(function () {
   "use strict";
 
-  // Smooth scroll for the menu and links with .scrollto classes
   $(".nav-menu a, #mobile-nav a, .scrollto").on("click", function () {
     if (
       location.pathname.replace(/^\//, "") ==
@@ -34,7 +33,6 @@ $(document).ready(function () {
     }
   });
 
-  // Mobile Navigation
   if ($("#nav-menu-container").length) {
     var $mobile_nav = $("#nav-menu-container").clone().prop({
       id: "mobile-nav",
@@ -73,7 +71,6 @@ $(document).ready(function () {
     });
   }
 
-  // Header scroll class
   $(window).scroll(function () {
     if ($(this).scrollTop() > 100) {
       $("#header").addClass("header-scrolled");
@@ -82,39 +79,45 @@ $(document).ready(function () {
     }
   });
 
-  // Function to open the modal
-  function openModal(title, description, imageUrl, features) {
-    $("#modalTitle").text(title);
-    $("#modalDescription").text(description);
-    $("#modalImage").attr("src", imageUrl);
-
-    const featureList = $("#modalFeatures");
-    featureList.empty(); // Clear previous features
-    features.forEach(function (feature) {
-      featureList.append(`<li>${feature}</li>`);
-    });
-
-    $("#productModal").fadeIn();
+  // Function to open a specific modal
+  function openModal(title, description, imageUrl, features, modalId) {
+    $(modalId).find("#modalTitle").text(title);
+    $(modalId).find("#modalImage").attr("src", imageUrl);
+    $(modalId).find("#modalDescription").html(description);
+    $(modalId).fadeIn();
   }
 
+  // Event handler for clicking on the discover button
   $(".product-card .discover-button").on("click", function (event) {
-    event.preventDefault(); // Prevent page refresh
-
+    event.preventDefault();
     const productCard = $(this).closest(".product-card");
     const title = productCard.data("title");
     const description = productCard.data("description");
-    const imageUrl = productCard.data("image");
+    const imageUrl = productCard.attr("data-modal-image");
     const features = productCard.data("features");
 
-    openModal(title, description, imageUrl, features);
-  });
-  $(".close-button").on("click", function () {
-    $("#productModal").fadeOut();
+    // Decide which modal to open based on the data attributes
+    let modalId;
+    if (title === "Lattiz® Inside") {
+      modalId = "#lattizInsideModal";
+    } else if (title === "Lattiz® 4L Milk Pack") {
+      modalId = "#lattizMilkModal";
+    } else {
+      modalId = "#productModal"; // default modal
+    }
+
+    openModal(title, description, imageUrl, features, modalId);
   });
 
+  // Close modal when the close button is clicked
+  $(".close-button").on("click", function () {
+    $(this).closest(".modal").fadeOut();
+  });
+
+  // Close modal if user clicks outside of the modal content
   $(window).on("click", function (event) {
-    if ($(event.target).is("#productModal")) {
-      $("#productModal").fadeOut();
+    if ($(event.target).is(".modal")) {
+      $(".modal").fadeOut();
     }
   });
 });
