@@ -346,7 +346,7 @@
 
 .about-feature-area .overlay-bg {
   background: #222;
-  opacity: .9;
+  opacity: 0.9;
 }
 
 .single-about-feature {
@@ -357,7 +357,9 @@
   transition: all 0.3s ease 0s;
 }
 
-.single-about-feature a, .single-about-feature .title .lnr, .single-about-feature p {
+.single-about-feature a,
+.single-about-feature .title .lnr,
+.single-about-feature p {
   color: #fff;
 }
 
@@ -389,12 +391,14 @@
     left: 0;
     top: 20px;
   }
-  .testimonial-area .owl-controls .owl-prev, .testimonial-area .owl-controls .owl-next {
+  .testimonial-area .owl-controls .owl-prev,
+  .testimonial-area .owl-controls .owl-next {
     display: inline-block;
   }
 }
 
-.testimonial-area .lnr-arrow-up, .testimonial-area .lnr-arrow-down {
+.testimonial-area .lnr-arrow-up,
+.testimonial-area .lnr-arrow-down {
   background-color: white;
   box-shadow: -14.142px 14.142px 20px 0px rgba(157, 157, 157, 0.2);
   padding: 14px;
@@ -473,7 +477,8 @@
   text-align: center;
 }
 
-.contact-page-contact .form-area input, .contact-page-contact .form-area textarea {
+.contact-page-contact .form-area input,
+.contact-page-contact .form-area textarea {
   border-radius: 0;
   font-size: 12px;
   padding: 15px;
